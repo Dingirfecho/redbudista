@@ -1,0 +1,73 @@
+/* Red Budista Argentina — color tokens
+   Palette names are Spanish material metaphors: papel (unbleached paper), piedra (stone), tinta (ink),
+   azafrán (saffron robes), granate (maroon robes), musgo (moss), índigo (dusk sky). */
+:root{
+  /* Papel — warm paper neutrals (surfaces) */
+  --papel-50:#FBF8F2;
+  --papel-100:#F5EFE3;
+  --papel-200:#EBE2D1;
+  --papel-300:#DCCFB8;
+  /* Piedra / Tinta — warm stone greys to ink (text, lines) */
+  --piedra-400:#A89C88;
+  --piedra-500:#7D7263;
+  --piedra-600:#5C5348;
+  --piedra-700:#423B33;
+  --tinta-900:#26201B;
+  /* Azafrán — saffron (highlight, warmth) */
+  --azafran-100:#F6E3C6;
+  --azafran-300:#E6B06A;
+  --azafran-500:#CF8A33;
+  --azafran-700:#9A5A17;
+  /* Granate — maroon (primary action) */
+  --granate-100:#F1DCD7;
+  --granate-300:#C98074;
+  --granate-500:#8E3B32;
+  --granate-700:#6A2822;
+  /* Musgo — moss (nature, confirmation) */
+  --musgo-100:#E3E6D4;
+  --musgo-500:#66704A;
+  --musgo-700:#47502F;
+  /* Índigo — dusk (information, online events) */
+  --indigo-100:#DEE2EC;
+  --indigo-500:#3F4E72;
+  --indigo-700:#2C3854;
+
+  /* ——— Semantic aliases ——— */
+  --surface-page:var(--papel-100);
+  --surface-card:var(--papel-50);
+  --surface-sunken:var(--papel-200);
+  --surface-inverse:var(--tinta-900);
+  --surface-accent:var(--granate-500);
+  --surface-highlight:var(--azafran-100);
+
+  --text-body:var(--tinta-900);
+  --text-muted:var(--piedra-600);
+  --text-subtle:var(--piedra-500);
+  --text-inverse:var(--papel-50);
+  --text-on-accent:var(--papel-50);
+  --text-link:var(--azafran-700);
+  --text-link-hover:var(--granate-700);
+
+  --accent:var(--granate-500);
+  --accent-hover:var(--granate-700);
+  --accent-soft:var(--granate-100);
+  --highlight:var(--azafran-500);
+
+  --border-hairline:var(--papel-300);
+  --border-strong:var(--piedra-400);
+  --border-ink:var(--tinta-900);
+  --focus-ring:var(--azafran-500);
+
+  --success:var(--musgo-500);--success-soft:var(--musgo-100);--success-ink:var(--musgo-700);
+  --info:var(--indigo-500);--info-soft:var(--indigo-100);--info-ink:var(--indigo-700);
+  --warning:var(--azafran-700);--warning-soft:var(--azafran-100);--warning-ink:var(--azafran-700);
+  --danger:var(--granate-700);--danger-soft:var(--granate-100);--danger-ink:var(--granate-700);
+
+  /* Tradition markers — equal visual weight, never ranked */
+  --trad-theravada:var(--azafran-500);
+  --trad-zen:var(--tinta-900);
+  --trad-vajrayana:var(--granate-500);
+  --trad-mahayana:var(--musgo-500);
+  --trad-tierra-pura:var(--indigo-500);
+  --trad-no-sectario:var(--piedra-400);
+}

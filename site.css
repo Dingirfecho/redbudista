@@ -1,0 +1,94 @@
+/* Red Budista de Argentina — layout del sitio.
+   Solo usa tokens del Design System (styles.css) y componentes rb-*. Clases propias: prefijo site-. */
+
+html{scroll-padding-top:calc(var(--header-height) + 16px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+.site-wrap{max-width:var(--container-max);margin:0 auto;padding:0 var(--gutter)}
+.site-section{margin-top:var(--section-gap)}
+.site-icon{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.site-icon--lg{width:24px;height:24px}
+.site-icon--sm{width:16px;height:16px}
+.site-em{font-style:italic;font-weight:300}
+.site-muted{color:var(--text-muted)}
+.site-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}
+
+.site-skip{position:absolute;left:var(--gutter);top:-48px;z-index:60;background:var(--tinta-900);color:var(--papel-50);padding:10px 16px;border-radius:var(--radius-sm);font:var(--type-label);text-decoration:none}
+.site-skip:focus{top:12px;color:var(--papel-50)}
+
+/* Header (único lugar con blur, según el sistema) */
+.site-header{position:sticky;top:0;z-index:30;background:rgba(245,239,227,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-hairline)}
+.site-header__in{max-width:var(--container-max);margin:0 auto;padding:0 var(--gutter);height:var(--header-height);display:flex;align-items:center;gap:32px}
+.site-brand{display:flex;flex-direction:column;gap:3px;margin-right:auto;text-decoration:none;color:var(--text-body)}
+.site-brand:hover{color:var(--text-body)}
+.site-brand__kicker{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--text-muted)}
+.site-brand__name{font:400 24px/1 var(--font-display);letter-spacing:-.02em}
+.site-nav{display:flex;gap:28px}
+.site-nav a{font:var(--type-label);text-decoration:none;color:var(--text-muted);border-bottom:2px solid transparent;padding-bottom:4px}
+.site-nav a:hover{color:var(--text-body);border-bottom-color:var(--border-strong)}
+
+/* Hero */
+.site-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;padding-top:72px}
+.site-hero__text{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.site-h1{font:var(--type-display-xl);letter-spacing:var(--tracking-display);text-wrap:balance}
+.site-lead{font:var(--type-body-l);color:var(--text-muted);max-width:520px}
+.site-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+
+/* Dos columnas editoriales: título a la izquierda, contenido a la derecha */
+.site-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:56px;align-items:start}
+.site-prose{display:flex;flex-direction:column;gap:20px;max-width:var(--container-text)}
+.site-prose p{font:var(--type-body);color:var(--text-body);max-width:var(--measure)}
+.site-tags{display:flex;flex-wrap:wrap;gap:8px}
+.site-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.site-pillar__icon{color:var(--accent);display:inline-flex}
+.site-pillar p{font:var(--type-body);color:var(--text-muted)}
+
+/* Origen (Fundación Conecta) */
+.site-origin{border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline);padding:56px 0}
+
+/* Directorio */
+.site-dir{display:flex;flex-direction:column;gap:36px}
+.site-toolbar{display:flex;flex-direction:column;gap:16px;padding-bottom:24px;border-bottom:1px solid var(--border-hairline)}
+.site-toolbar__row{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:12px}
+.site-toolbar__tags{display:flex;flex-wrap:wrap;gap:8px}
+.site-dir__count{display:flex;justify-content:space-between;align-items:center;font:var(--type-small);color:var(--text-muted);margin-top:-12px}
+.site-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.site-empty{display:flex;flex-direction:column;gap:24px;align-items:flex-start;max-width:var(--container-text)}
+.site-card-link{color:inherit;text-decoration:none}
+.site-card-link:hover{color:inherit}
+
+/* Footer */
+.site-footer{background:var(--surface-inverse);color:var(--papel-100);margin-top:var(--section-gap)}
+.site-footer__in{max-width:var(--container-max);margin:0 auto;padding:72px var(--gutter) 40px;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:40px}
+.site-footer__brand{display:flex;flex-direction:column;gap:14px}
+.site-footer__name{font:400 30px/1.1 var(--font-display);letter-spacing:-.02em}
+.site-footer__col{display:flex;flex-direction:column;gap:10px}
+.site-footer__title{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--piedra-400)}
+.site-footer a{color:var(--papel-200);font:var(--type-small);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.site-footer a:hover{color:var(--azafran-300);text-decoration:underline;text-underline-offset:.2em}
+.site-footer__note{font:var(--type-small);color:var(--papel-200);max-width:36ch}
+.site-footer__base{max-width:var(--container-max);margin:0 auto;padding:20px var(--gutter) 32px;border-top:1px solid var(--piedra-700);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:var(--type-caption);color:var(--piedra-400)}
+
+/* Responsive */
+@media (max-width:900px){
+  .site-hero,.site-split{grid-template-columns:minmax(0,1fr);gap:40px}
+  .site-hero{padding-top:48px}
+  .site-pillars,.site-grid{grid-template-columns:minmax(0,1fr)}
+  .site-footer__in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .site-footer__brand{grid-column:1 / -1}
+}
+@media (max-width:700px){
+  .site-header__in{gap:16px}
+  .site-header .rb-btn{display:none}
+  .site-nav{gap:18px}
+  .site-h1{font:var(--type-h1);letter-spacing:var(--tracking-display)}
+  .site-toolbar__row{grid-template-columns:minmax(0,1fr)}
+  .site-origin{padding:40px 0}
+}
+@media (max-width:420px){
+  .site-brand__name{font-size:21px}
+  .site-nav{gap:14px}
+  .site-nav a{font-size:.875rem}
+  .site-footer__in{grid-template-columns:minmax(0,1fr)}
+}

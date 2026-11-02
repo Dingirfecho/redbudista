@@ -1,0 +1,30 @@
+:root{
+  --font-display:"Newsreader","Iowan Old Style",Georgia,serif;
+  --font-sans:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;
+
+  /* Display (Newsreader) */
+  --type-display-xl:400 4rem/1.04 var(--font-display);      /* 64 */
+  --type-display-l:400 3rem/1.08 var(--font-display);       /* 48 */
+  --type-h1:400 2.5rem/1.12 var(--font-display);            /* 40 */
+  --type-h2:400 1.875rem/1.18 var(--font-display);          /* 30 */
+  --type-h3:500 1.4375rem/1.25 var(--font-display);         /* 23 */
+  --type-quote:italic 300 1.75rem/1.35 var(--font-display); /* 28 */
+  /* Text (Instrument Sans) */
+  --type-h4:600 1.1875rem/1.35 var(--font-sans);            /* 19 */
+  --type-body-l:400 1.1875rem/1.6 var(--font-sans);         /* 19 */
+  --type-body:400 1.0625rem/1.6 var(--font-sans);           /* 17 */
+  --type-small:400 0.9375rem/1.5 var(--font-sans);          /* 15 */
+  --type-caption:400 0.8125rem/1.4 var(--font-sans);        /* 13 */
+  --type-overline:600 0.75rem/1.2 var(--font-sans);         /* 12, uppercase */
+  --type-label:500 0.9375rem/1.2 var(--font-sans);          /* 15, UI labels/buttons */
+
+  --tracking-display:-0.015em;
+  --tracking-overline:0.14em;
+  --measure:64ch;
+
+  /* Semantic aliases */
+  --text-heading-font:var(--font-display);
+  --text-ui-font:var(--font-sans);
+}

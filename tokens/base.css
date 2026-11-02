@@ -1,0 +1,12 @@
+/* Minimal element defaults so consumers inherit the brand voice by default */
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:var(--tracking-display);text-wrap:balance;margin:0}
+h1{font:var(--type-h1)}h2{font:var(--type-h2)}h3{font:var(--type-h3)}h4{font:var(--type-h4);margin:0}
+p{margin:0;text-wrap:pretty}
+a{color:var(--text-link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;transition:color var(--dur-fast) var(--ease-calm)}
+a:hover{color:var(--text-link-hover)}
+::selection{background:var(--azafran-100);color:var(--tinta-900)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+hr{border:0;border-top:1px solid var(--border-hairline);margin:0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important;animation-iteration-count:1!important}}
