@@ -106,7 +106,7 @@
       address: r.direccion || '', schedule: r.horario_habitual || '', description: r.descripcion || '',
       web: httpUrl(r.web), instagram: httpUrl(r.instagram), facebook: httpUrl(r.facebook),
       youtube: httpUrl(r.youtube), whatsapp: waUrl(r.whatsapp),
-      foto: fotoUrl(r.foto),
+      foto: fotoUrl(r.foto || r.link_foto || r.foto_link || r.link_de_la_foto || r.imagen),
       fotoAlt: r.foto_descripcion || '',
       email: /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(r.email || '') ? r.email : ''
     };
