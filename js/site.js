@@ -122,11 +122,14 @@
       description: r.descripcion || '', link: safeUrl(r.link)
     };
   }
-  function hoyBA() {
+  function ahoraBA() {
+    var p = {};
     try {
-      return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Argentina/Buenos_Aires', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Argentina/Buenos_Aires', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+        .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+      return p.year + '-' + p.month + '-' + p.day + ' ' + p.hour + ':' + p.minute;
     } catch (e) {
-      var d = new Date(Date.now() - 3 * 3600 * 1000); return d.toISOString().slice(0, 10);
+      return new Date(Date.now() - 3 * 3600 * 1000).toISOString().slice(0, 16).replace('T', ' ');
     }
   }
 
@@ -335,8 +338,8 @@
   load().then(function (d) {
     var cs = d.c.map(cleanCentro).filter(Boolean), byId = {};
     cs.forEach(function (c) { byId[c.id] = c; });
-    var hoy = hoyBA();
-    var as = d.a.map(function (r) { return cleanActividad(r, byId); }).filter(function (a) { return a && a.date >= hoy; })
+    var ahora = ahoraBA();
+    var as = d.a.map(function (r) { return cleanActividad(r, byId); }).filter(function (a) { return a && (a.date + ' ' + (a.end || a.start)) >= ahora; })
       .sort(function (x, y) { return (x.date + x.start) < (y.date + y.start) ? -1 : 1; });
     setupDir(cs);
     renderAgenda(as);
