@@ -38,6 +38,12 @@
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
   <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
 </svg>
 
@@ -51,6 +57,7 @@
     </a>
     <nav class="site-nav" aria-label="Principal">
       <a href="#la-red">La Red</a>
+      <a href="#agenda" id="nav-agenda" hidden>Agenda</a>
       <a href="#directorio">Directorio</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -121,6 +128,19 @@
     </div>
   </section>
 
+  <!-- Agenda: se completa desde la planilla (ver js/config.js). Oculta hasta que haya actividades. -->
+  <section class="site-wrap site-section site-agenda" id="agenda" hidden>
+    <div class="rb-sechead">
+      <span class="rb-overline">Agenda</span>
+      <h2 class="rb-sechead__title">Próximas actividades</h2>
+      <p class="rb-sechead__lead">Fecha, hora y lugar primero. Confirmá con el centro antes de ir.</p>
+    </div>
+    <div class="site-agenda__list" id="agenda-list"></div>
+    <div class="site-actions" id="agenda-more-box" hidden>
+      <button type="button" class="rb-btn rb-btn--secondary rb-btn--md" id="agenda-more">Ver todas las actividades</button>
+    </div>
+  </section>
+
   <!-- Directorio -->
   <section class="site-wrap site-section site-dir" id="directorio">
     <div class="rb-sechead">
@@ -147,6 +167,10 @@
         </div>
       </div>
       <div class="site-toolbar__tags" id="dir-tags" role="group" aria-label="Filtrar por tradición"></div>
+    </div>
+
+    <div class="rb-notice rb-notice--neutral" id="dir-error" role="status" hidden>
+      <div><strong class="rb-notice__title">No pudimos cargar el directorio</strong>Probá de nuevo en unos minutos. Si sigue pasando, escribinos a contacto@redbudistaargentina.org.</div>
     </div>
 
     <div class="site-dir__count" id="dir-count" hidden></div>
@@ -191,7 +215,7 @@
   </div>
 </footer>
 
-<script src="data/centros.js"></script>
+<script src="js/config.js"></script>
 <script src="js/site.js"></script>
 </body>
 </html>

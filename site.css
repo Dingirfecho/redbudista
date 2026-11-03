@@ -94,3 +94,22 @@ html{scroll-padding-top:calc(var(--header-height) + 16px)}
   .site-nav a{font-size:.875rem}
   .site-footer__in{grid-template-columns:minmax(0,1fr)}
 }
+
+/* Agenda */
+.site-agenda__list{border-bottom:1px solid var(--border-hairline)}
+.site-event__center{display:inline-flex;align-items:center;gap:8px;font:var(--type-label);color:var(--text-body)}
+.site-event__desc{font:var(--type-body);color:var(--text-muted);max-width:var(--measure)}
+.site-event__wd{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--text-muted);margin-top:6px}
+a.rb-event .site-event__go{color:var(--accent)}
+
+/* Fichas del directorio */
+.site-links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:4px}
+.site-links a{display:inline-flex;align-items:center;gap:6px;font:var(--type-small)}
+.site-card-facts{display:flex;flex-direction:column;gap:6px;font:var(--type-small);color:var(--text-muted)}
+.site-card-facts span{display:inline-flex;align-items:flex-start;gap:6px}
+.site-card-facts .site-icon{margin-top:2px}
+@media (max-width:700px){
+  .rb-event{grid-template-columns:56px minmax(0,1fr)}
+  .rb-event__aside{grid-column:2;align-items:flex-start}
+  .rb-event__day{font-size:2rem}
+}
