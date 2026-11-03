@@ -86,6 +86,16 @@
     if (n === 'presencial y online' || n === 'mixta' || n === 'hibrida') return 'mixta';
     return MOD[n] ? n : '';
   }
+  /* La columna "foto" acepta: un link de Google Drive (archivo compartido con "cualquiera con el link"),
+     cualquier link https a una imagen, o el nombre de un archivo guardado en assets/img/centros/. */
+  function fotoUrl(v) {
+    v = String(v || '').trim();
+    if (!v) return '';
+    var m = /^https:\/\/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:[^#]*&)?id=)([A-Za-z0-9_-]{10,})/.exec(v);
+    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1000';
+    if (/^https:\/\//i.test(v)) return v;
+    return /^[a-z0-9][a-z0-9._-]*\.(webp|jpg|jpeg|png)$/i.test(v) ? 'assets/img/centros/' + v : '';
+  }
   function cleanCentro(r) {
     if (norm(r.estado) !== 'publicado' || !r.id || !r.nombre) return null;
     var trad = key(r.tradicion, TRAD);
@@ -96,7 +106,7 @@
       address: r.direccion || '', schedule: r.horario_habitual || '', description: r.descripcion || '',
       web: httpUrl(r.web), instagram: httpUrl(r.instagram), facebook: httpUrl(r.facebook),
       youtube: httpUrl(r.youtube), whatsapp: waUrl(r.whatsapp),
-      foto: /^[a-z0-9][a-z0-9._-]*\.(webp|jpg|jpeg|png)$/i.test(r.foto || '') ? 'assets/img/centros/' + r.foto : '',
+      foto: fotoUrl(r.foto),
       fotoAlt: r.foto_descripcion || '',
       email: /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(r.email || '') ? r.email : ''
     };
