@@ -43,9 +43,6 @@ html{scroll-padding-top:calc(var(--header-height) + 16px)}
 .site-pillar__icon{color:var(--accent);display:inline-flex}
 .site-pillar p{font:var(--type-body);color:var(--text-muted)}
 
-/* Origen (Fundación Conecta) */
-.site-origin{border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline);padding:56px 0}
-
 /* Directorio */
 .site-dir{display:flex;flex-direction:column;gap:36px}
 .site-toolbar{display:flex;flex-direction:column;gap:16px;padding-bottom:24px;border-bottom:1px solid var(--border-hairline)}
@@ -84,7 +81,6 @@ html{scroll-padding-top:calc(var(--header-height) + 16px)}
   .site-brand__logo{height:44px}
   .site-h1{font:var(--type-h1);letter-spacing:var(--tracking-display)}
   .site-toolbar__row{grid-template-columns:minmax(0,1fr)}
-  .site-origin{padding:40px 0}
 }
 @media (max-width:480px){
   .site-brand__logo{display:none}
