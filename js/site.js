@@ -6,11 +6,9 @@
 
   var TRAD = {
     'theravada': 'Theravāda',
-    'zen': 'Zen',
     'vajrayana': 'Vajrayāna',
     'mahayana': 'Mahāyāna',
-    'tierra-pura': 'Tierra Pura',
-    'no-sectario': 'No sectario'
+    'moderno': 'Moderno'
   };
   var MOD = { presencial: 'Presencial', online: 'Online', mixta: 'Presencial y online' };
 
@@ -79,6 +77,7 @@
     }
     body.appendChild(top);
     body.appendChild(el('h3', 'rb-center__name', c.name));
+    if (c.lineage) body.appendChild(el('p', 'site-lineage', 'Linaje: ' + c.lineage));
     var meta = el('div', 'rb-center__meta');
     meta.appendChild(svg('map-pin', 'site-icon--sm'));
     meta.appendChild(document.createTextNode([c.city, c.province].filter(Boolean).join(', ')));
@@ -98,7 +97,7 @@
 
   function render() {
     var list = centros.filter(function (c) {
-      var hay = norm([c.name, c.city, c.province].join(' '));
+      var hay = norm([c.name, c.city, c.province, c.lineage].join(' '));
       return (!state.q || hay.indexOf(norm(state.q)) !== -1) &&
         (!state.prov || c.province === state.prov) &&
         (!state.trads.length || state.trads.indexOf(c.tradition) !== -1);

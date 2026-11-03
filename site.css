@@ -51,6 +51,7 @@ html{scroll-padding-top:calc(var(--header-height) + 16px)}
 .site-dir__count{display:flex;justify-content:space-between;align-items:center;font:var(--type-small);color:var(--text-muted);margin-top:-12px}
 .site-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .site-empty{display:flex;flex-direction:column;gap:24px;align-items:flex-start;max-width:var(--container-text)}
+.site-lineage{font:var(--type-small);color:var(--text-muted);margin:-4px 0 0}
 .site-card-link{color:inherit;text-decoration:none}
 .site-card-link:hover{color:inherit}
 

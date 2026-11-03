@@ -8,7 +8,8 @@
 //   {
 //     id: 'nombre-corto-sin-espacios',
 //     name: 'Nombre del centro',
-//     tradition: 'theravada' | 'zen' | 'vajrayana' | 'mahayana' | 'tierra-pura' | 'no-sectario',
+//     tradition: 'theravada' | 'vajrayana' | 'mahayana' | 'moderno',   // una sola, la principal
+//     lineage: 'Linaje o escuela, en texto libre (opcional)',          // ej.: 'Zen Sōtō', 'Nyingma', 'Tierra Pura'
 //     city: 'Ciudad',
 //     province: 'Provincia',
 //     modality: 'presencial' | 'online' | 'mixta',
