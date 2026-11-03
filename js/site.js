@@ -96,6 +96,8 @@
       address: r.direccion || '', schedule: r.horario_habitual || '', description: r.descripcion || '',
       web: httpUrl(r.web), instagram: httpUrl(r.instagram), facebook: httpUrl(r.facebook),
       youtube: httpUrl(r.youtube), whatsapp: waUrl(r.whatsapp),
+      foto: /^[a-z0-9][a-z0-9._-]*\.(webp|jpg|jpeg|png)$/i.test(r.foto || '') ? 'assets/img/centros/' + r.foto : '',
+      fotoAlt: r.foto_descripcion || '',
       email: /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(r.email || '') ? r.email : ''
     };
   }
@@ -241,9 +243,18 @@
     var root = el('article', 'rb-card');
     var ph = el('div', 'rb-photo');
     ph.style.aspectRatio = '3/2';
-    ph.setAttribute('role', 'img');
-    ph.setAttribute('aria-label', 'Imagen pendiente: foto del centro');
-    ph.appendChild(el('span', 'rb-photo__ph', 'Foto del centro'));
+    function placeholder() {
+      ph.textContent = '';
+      ph.setAttribute('role', 'img');
+      ph.setAttribute('aria-label', 'Imagen pendiente: foto del centro');
+      ph.appendChild(el('span', 'rb-photo__ph', 'Foto del centro'));
+    }
+    if (c.foto) {
+      var img = el('img');
+      img.src = c.foto; img.alt = c.fotoAlt; img.loading = 'lazy'; img.decoding = 'async';
+      img.addEventListener('error', placeholder);
+      ph.appendChild(img);
+    } else placeholder();
     root.appendChild(ph);
 
     var body = el('div', 'rb-card__body');
