@@ -113,3 +113,7 @@ a.rb-event .site-event__go{color:var(--accent)}
   .rb-event__aside{grid-column:2;align-items:flex-start}
   .rb-event__day{font-size:2rem}
 }
+
+/* Aviso para sumar un grupo (directorio con centros) */
+.site-join{display:flex;flex-direction:column;gap:16px;align-items:flex-start;max-width:var(--container-text)}
+.site-join p{font:var(--type-body);color:var(--text-body);margin:0}

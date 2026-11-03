@@ -350,6 +350,7 @@
     });
     qInput.addEventListener('input', function () { state.q = qInput.value; renderDir(); });
     provSel.addEventListener('change', function () { state.prov = provSel.value; renderDir(); });
+    var join = document.getElementById('dir-join'); if (join) join.hidden = false;
     empty.hidden = true; toolbar.hidden = false; count.hidden = false; grid.hidden = false;
     renderDir();
   }
