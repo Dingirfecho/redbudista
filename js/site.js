@@ -92,7 +92,7 @@
     v = String(v || '').trim();
     if (!v) return '';
     var m = /^https:\/\/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:[^#]*&)?id=)([A-Za-z0-9_-]{10,})/.exec(v);
-    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1000';
+    if (m) return 'https://lh3.googleusercontent.com/d/' + m[1] + '=w1000';
     if (/^https:\/\//i.test(v)) return v;
     return /^[a-z0-9][a-z0-9._-]*\.(webp|jpg|jpeg|png)$/i.test(v) ? 'assets/img/centros/' + v : '';
   }
@@ -261,8 +261,13 @@
     }
     if (c.foto) {
       var img = el('img');
-      img.src = c.foto; img.alt = c.fotoAlt; img.loading = 'lazy'; img.decoding = 'async';
-      img.addEventListener('error', placeholder);
+      img.referrerPolicy = 'no-referrer'; img.alt = c.fotoAlt; img.decoding = 'async';
+      var idm = /googleusercontent\.com\/d\/([A-Za-z0-9_-]+)/.exec(c.foto), tried = false;
+      img.addEventListener('error', function () {
+        if (idm && !tried) { tried = true; img.src = 'https://drive.google.com/thumbnail?id=' + idm[1] + '&sz=w1000'; }
+        else placeholder();
+      });
+      img.src = c.foto;
       ph.appendChild(img);
     } else placeholder();
     root.appendChild(ph);
